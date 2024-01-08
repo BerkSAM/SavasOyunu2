@@ -127,8 +127,13 @@ namespace SavasOyunu
                     ana.AppendChild(kaybeden);
 
                     xmlOyun.DocumentElement.AppendChild(ana);
-                    xmlOyun.Save(SavasOyunu.Properties.Resources.oyun);
 
+                    string xmlFilePath = "../../Resources/oyun.xml";
+                    xmlOyun.Save(xmlFilePath);
+
+                    button2.Enabled = false;
+                    button1.Enabled = false;
+                    listView1.Items.Clear();
                     foreach (XmlNode item in xmlRoot.SelectNodes("oynanan"))
                     {
                         string[] oyun = new string[3];
@@ -137,8 +142,6 @@ namespace SavasOyunu
                         oyun[1] = item.SelectSingleNode("kaybeden").InnerText;
                         listView1.Items.Add(new ListViewItem(oyun));
                     }
-                    
-                    button1.Enabled = true;
 
                     label1.Text = "G/O";
                 }
@@ -184,8 +187,14 @@ namespace SavasOyunu
 
                     xmlOyun.DocumentElement.AppendChild(ana);
 
-                    xmlOyun.Save(SavasOyunu.Properties.Resources.oyun);
+                    ana.ToString();
 
+                    string xmlFilePath = "../../Resources/oyun.xml";
+                    xmlOyun.Save(xmlFilePath);
+
+                    button2.Enabled = false;
+                    button1.Enabled = false;
+                    listView1.Items.Clear();
                     foreach (XmlNode item in xmlRoot.SelectNodes("oynanan"))
                     {
                         string[] oyun = new string[3];
@@ -194,7 +203,7 @@ namespace SavasOyunu
                         oyun[1] = item.SelectSingleNode("kaybeden").InnerText;
                         listView1.Items.Add(new ListViewItem(oyun));
                     }
-                    button1.Enabled = true; 
+                    
                     label1.Text = "G/O";
                 }
             }
